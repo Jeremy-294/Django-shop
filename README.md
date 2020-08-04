@@ -1,5 +1,6 @@
 # Django-shop
-用python Django做的简易教务系统，支持开源，欢迎使用，这是我上传的第一个GitHub项目，还希望大家帮帮忙点亮Star，谢谢啦！
+用python Django做的订单后台管理系统，支持开源，欢迎使用，这是我上传的第一个GitHub项目，还希望大家帮帮忙点亮Star，谢谢啦！
+这是我的CSDN博客，欢迎私信，留言等 https://blog.csdn.net/weixin_43648017
 
 # 实现功能
  - 用户登录注册，退出账号，修改密码等
