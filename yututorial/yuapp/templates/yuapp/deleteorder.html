@@ -1,0 +1,48 @@
+{% extends 'yuapp/index.html' %}
+
+{% block title %}删除订单{% endblock %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div style="height: 100px;"></div>
+                <div class="card shadow text-center">
+                    <div class="card-header">
+                        <div class="text-title">
+                            <h4>你确定要删除这个订单吗？</h4>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Customer</th>
+                                    <th scope="col">Product</th>
+                                    <th scope="col">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{ order.customer }}</td>
+                                    <td>{{ order.product }}</td>
+                                    <td>{{ order.status }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br>
+                        <form action="{% url 'deleteorder' order.id %}" method="post">
+                            {% csrf_token %}
+                            <a href="{% url 'homepage' %}" class="btn btn-warning">取消</a>
+                            <button type="submit" class="btn btn-danger">删除</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+
+{% endblock %}

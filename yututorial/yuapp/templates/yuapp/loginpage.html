@@ -1,0 +1,39 @@
+{% extends 'yuapp/index.html' %}
+
+{% block title %}登录{% endblock %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div style="height: 50px;"></div>
+                <div class="card shadow">
+                    <div class="card-header text-center bg-dark">
+                        <h2 class="text-light card-title">登录</h2>
+                    </div>
+                    <div class="card-body">
+                        {% if message %}
+                            <div class="alert alert-warning" role="alert">
+                                {{ message }}
+                            </div>
+                        {% endif %}
+                        <form action="{% url 'login' %}" method="post">
+                            {% csrf_token %}
+                            <label for="#user">用户名：</label>
+                            <input type="text" id="user" class="form-control" name="username" placeholder="username" required>
+                            <label for="#pwd">密码：</label>
+                            <input type="password" id="pwd" class="form-control" name="password" placeholder="password" required>
+                            <div class="text-center"><br>
+                                <button type="submit" class="btn btn-primary">登录</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+
+{% endblock %}

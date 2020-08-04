@@ -1,0 +1,36 @@
+{% extends 'yuapp/index.html' %}
+
+{% block title %}注册{% endblock %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div style="height: 50px;"></div>
+                <div class="card shadow">
+                    <div class="card-header text-center bg-dark">
+                        <h2 class="text-light card-title">注册</h2>
+                    </div>
+                    <div class="card-body">
+                        {% if message %}
+                            <div class="alert alert-warning" role="alert">
+                                {{ message }}
+                            </div>
+                        {% endif %}
+                        <form action="{% url 'register' %}" method="post">
+                            {% csrf_token %}
+                            {{ r_form }}
+                            <div class="text-center"><br>
+                                <button type="submit" class="btn btn-primary">注册</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+
+{% endblock %}

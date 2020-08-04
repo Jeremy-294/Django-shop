@@ -1,0 +1,41 @@
+{% extends 'yuapp/index.html' %}
+
+{% block title %}修改密码{% endblock %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div style="height: 50px;"></div>
+                <div class="card shadow">
+                    <div class="card-header text-center bg-dark">
+                        <h2 class="text-light card-title">修改密码</h2>
+                    </div>
+                    <div class="card-body">
+                        {% if message %}
+                            <div class="alert alert-warning" role="alert">
+                                {{ message }}
+                            </div>
+                        {% endif %}
+                        <form action="{% url 'modifypwd' %}" method="post">
+                            {% csrf_token %}
+                            <label for="#old-pwd">原密码：</label>
+                            <input type="password" id="old-pwd" class="form-control" name="old_pwd" placeholder="old password" required>
+                            <label for="#new-pwd">新密码：</label>
+                            <input type="password" id="new-pwd" class="form-control" name="new_pwd" placeholder="new password" required>
+                            <label for="#repeat-pwd">重复新密码：</label>
+                            <input type="password" id="repeat-pwd" class="form-control" name="repeat_pwd" placeholder="repeat new password" required>
+                            <div class="text-center"><br>
+                                <button type="submit" class="btn btn-primary">确认修改</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+
+{% endblock %}
